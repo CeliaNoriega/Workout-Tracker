@@ -10,7 +10,7 @@ router.post('/workouts', (req, res) => {
 router.put('/workouts/:id', (req, res) => {
   Workout.findByIdAndUpdate(
     req.params.id,
-    { $push: { tasks: req.body } },
+    { $push: { exercises: req.body } },
     { new: true, runValidators: true }
   )
     .then(workout => res.json(workout))
@@ -22,7 +22,7 @@ router.get('/workouts', (req, res) => {
     {
       $addFields: {
         totalDuration: {
-          $sum: '$tasks.duration'
+          $sum: '$exercises.duration'
         }
       }
     }
@@ -36,7 +36,7 @@ router.get('/workouts/range', (req, res) => {
     {
       $addFields: {
         totalDuration: {
-          $sum: '$tasks.duration'
+          $sum: '$exercises.duration'
         }
       }
     }
