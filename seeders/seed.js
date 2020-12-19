@@ -1,4 +1,4 @@
-const { Workout } = require('../Develop/models')
+const { Workout } = require('../models')
 
 let workoutSeed = [
   {
