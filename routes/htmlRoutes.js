@@ -1,4 +1,4 @@
-const { model } = require('../models/Workout')
+const { model } = require('../Workout')
 
 const router = require('express').Router()
 const { join } = require('path')
